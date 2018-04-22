@@ -18,6 +18,7 @@ public class Servidor {
 
             //pra ele sempre ficar aberto a novas conexões
             while (true){
+                
                 socket = server.accept();
                 //Testar isso rodando no servidor para ver como aparece
                 //aqui da pra implementar um contador de pessoas conectadas
@@ -26,16 +27,12 @@ public class Servidor {
 
                 //Guarda o endereço do cliente
                 clientes.add(new PrintStream(socket.getOutputStream()));
-                
                 Mensagem mensagem = new Mensagem(socket, clientes);
-
             }
         }
         catch(IOException e){
-            
             e.printStackTrace();
-        }
-        
+        } 
     }
 }
 
